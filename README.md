@@ -1,17 +1,17 @@
 # IELTS Essay Evaluator Backend
 
-A sophisticated AI-powered backend system for automated IELTS essay evaluation using multiple specialized agents and LangGraph orchestration. This project provides comprehensive essay assessment across all four IELTS writing criteria with detailed feedback and gap analysis.
+A sophisticated AI-powered backend system for automated IELTS essay evaluation using multiple specialised agents and LangGraph orchestration. This project provides comprehensive essay assessment across all four IELTS writing criteria with detailed feedback and gap analysis.
 
 ## 🎯 Overview
 
-The IELTS Essay Evaluator is a multi-agent system that evaluates IELTS essays using specialized AI agents, each focusing on specific assessment criteria. The system provides detailed scoring, feedback, and actionable improvement suggestions aligned with official IELTS band descriptors.
+The IELTS Essay Evaluator is a multi-agent system that evaluates IELTS essays using specialised AI agents, each focusing on specific assessment criteria. The system provides detailed scoring, feedback, and actionable improvement suggestions aligned with official IELTS band descriptors.
 
 ## ✨ Features
 
 ### Multi-Agent Evaluation System
 - **Grammar Agent**: Evaluates grammatical range and accuracy
 - **Lexical Agent**: Assesses lexical resource and vocabulary usage
-- **Task Agent**: Analyzes task achievement and response quality
+- **Task Agent**: Analyses task achievement and response quality
 - **Coherence Agent**: Evaluates coherence and cohesion
 - **Meta-Evaluation Agent**: Provides quality assessment of the evaluation process
 - **Gap Analysis Agent**: Generates targeted improvement recommendations
@@ -22,7 +22,7 @@ The IELTS Essay Evaluator is a multi-agent system that evaluates IELTS essays us
 - **Gap Analysis**: Identifies weak areas and provides improvement plans
 - **Image Description**: Handles visual prompts for Task 1 essays
 - **Multiple Essay Types**: Supports both Academic and General Training modules
-- **Target Band Alignment**: Customizable target band scoring
+- **Target Band Alignment**: Customisable target band scoring
 
 ## 🏗️ Architecture
 
@@ -40,7 +40,7 @@ Access to the backend evaluator is available via use of a valid API key.
 ### System Components
 ```
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
-│   FastAPI App   │───>│  Central Agent   │───>│  Specialized    │
+│   FastAPI App   │───>│  Central Agent   │───>│  Specialised    │
 │   (main.py)     │    │  (Orchestrator)  │    │  Agents         │
 └─────────────────┘    └──────────────────┘    └─────────────────┘
                                 │
@@ -97,6 +97,7 @@ Access to the backend evaluator is available via use of a valid API key.
    EVAL_MODEL="chosen llm model" #e.g gemini-2.0-flash-lite
    EVAL_MONITORING=false #Turn on for agent meta evaluations
    OVERALL_MODEL="chosen llm model" #e.g gemini-2.0-flash-lite
+   ELA_ENV="PROD" #The identifier for the environment to be shown when connecting to the front-end
    ```
 
 5. **Run the application**
@@ -193,7 +194,6 @@ Backend-main/
 │       ├── prompt_templates.py #llm prompts for injection
 │       └── *.json           # IELTS descriptors and criteria
 ├── tests/                    # Test suite
-├── evaluations/             # Evaluation results and logs
 ├── requirements.txt         # Python dependencies
 ├── render.yaml              # Deployment configuration
 └── LICENSE                  # MIT License

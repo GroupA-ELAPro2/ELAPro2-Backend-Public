@@ -10,53 +10,134 @@ IELTS_EVALUATION_PROMPT = PromptTemplate(
         "output_comments",
         "band_tool_output",
         "criteria_tool_output",
-        "task_description_output"
+        "task_description_output",
+        "goal_additional",
+        "notes",
     ],
-     template="""
+    template="""
 You are an expert IELTS examiner specialising in {criteria} in writing.
 
-Your task is to evaluate the following essay according to IELTS {criteria} assessment criteria.
+Your goal is to evaluate the essay **ONLY** for the {criteria} criterion.
+{goal_aditional}
 
-Essay:
-{essay}
+## Task Context
 
-Question:
-{question}
-
-Task Description:
+**Task Type Description:**
 {task_description_output}
 
-Ensure the comments are formatted in markdown as below:
-**General Comments:**
-**You did very well:**
-**Need to improve:**
-**Examples of errors:**
-**How to improve your score:**
+**Question:**
+{question}
 
+**Essay:**
+{essay}
+
+## Evaluation Basis
+
+Use the following resources to guide your judgement:
+
+**Assessment Rules**
+{criteria_tool_output}
+
+**Band Score Descriptors:**
+{band_tool_output}
+
+## Notes:
+{notes}
+
+## Evaluation Instructions
+1. Evaluate the essay **strictly** according to the {criteria} criterion — ignore other criteria.   
+2. Determine the most accurate **band score (1–9)** based on how well the essay meets the positive features of each band descriptor.  
+3. Provide **concise, non-redundant feedback** that is directly related to {criteria} and consider the notes provided as well.  
+4. Use **specific {criteria} examples** from the essay where possible.  
+5. Suggest **clear, actionable improvements** to raise the score
+6. Responses should be in Australian English
+
+## Output Format
 
 The Output format must strictly follow this structure:
 {output_score}: <integer 0-9>
 {output_comments}: <brief, actionable feedback with examples>
 
+Ensure the comments are formatted in markdown as below:
+**You did very well:**
+**Need to improve:**
+**Examples of errors:**
+**How to improve your score:**
 
-You must use the following tools to guide your evaluation:
-{{"Assessment Criteria Tool":{criteria_tool_output},
-"Band Descriptor Tool":{band_tool_output}}}
-
-Instructions for evaluation:
-1. Assign a band score (1-9) based strictly on {criteria} criteria.
-2. Provide concise and non-redundant comments explaining the score. 
-3. Highlight specific strengths and weaknesses in the essay, referencing the tool outputs where relevant.
-4. Suggest actionable improvements for the writer to raise their score.
-
-
-"""
+""",
 )
 
+# Task Achievement (Image-based Task) Evaluation Prompt
+IELTS_TASK_IMG_PROMPT = PromptTemplate(
+    input_variables=[
+        "essay",
+        "question",
+        "criteria",
+        "output_score",
+        "output_comments",
+        "band_tool_output",
+        "criteria_tool_output",
+        "task_description_output",
+        "image_description",
+        "goal_additional",
+        "notes",
+    ],
+    template="""
+You are an expert IELTS examiner specialising in {criteria} in writing.
+
+Your goal is to evaluate the essay **ONLY** for the {criteria} criterion.
+{goal_aditional}
+
+## Task Context
+
+**Task Type Description:**
+{task_description_output}
+
+**Question:**
+{question}
+
+{image_description}
+
+**Essay:**
+{essay}
+
+## Evaluation Basis
+
+Use the following resources to guide your judgement:
+
+**Assessment Rules**
+{criteria_tool_output}
+
+**Band Score Descriptors:**
+{band_tool_output}
+
+## Notes:
+{notes}
+
+## Evaluation Instructions
+1. Evaluate the essay **strictly** according to the {criteria} criterion — ignore other criteria.  
+2. Check notes and determine the most accurate **band score (1–9)** based on how well the essay meets the positive features of each band descriptor.  
+3. Provide **concise, non-redundant feedback** that is directly related to {criteria} and consider the notes provided as well.  
+4. Use **specific {criteria} examples** from the essay where possible.  
+5. Suggest **clear, actionable improvements** to raise the score.  
+6. Write all feedback in **Australian English**.
+
+## Output Format
+
+The Output format must strictly follow this structure:
+{output_score}: <integer 0-9>
+{output_comments}: <brief, actionable feedback with examples>
+
+Ensure the comments are formatted in markdown as below:
+**You did very well:**
+**Need to improve:**
+**Examples of errors:**
+**How to improve your score:**
+
+""",
+)
 
 # Meta Evaluation Prompt
-
-
 LLM_EVALUATION_PROMPT = PromptTemplate(
     input_variables=[
         ## original input
@@ -64,23 +145,19 @@ LLM_EVALUATION_PROMPT = PromptTemplate(
         "essay",
         "question",
         "essay_type",
-
         ## llm feedback
-        "grammar_comment",               
+        "grammar_comment",
         "coherence_comment",
         "lexical_comment",
         "task_comment",
         "overall_feedback"
-
         # from the tools
-
-        "task_description" 
-        "assessment_criteria" 
-
-        "descritors_for_actual_band_task" 
-        "descritors_for_actual_band_grammar" 
-        "descritors_for_actual_band_lexical" 
-        "descritors_for_actual_band_coherence" 
+        "task_description"
+        "assessment_criteria"
+        "descritors_for_actual_band_task"
+        "descritors_for_actual_band_grammar"
+        "descritors_for_actual_band_lexical"
+        "descritors_for_actual_band_coherence",
     ],
     template="""
 You are a senior IELTS examiner and AI evaluation specialist.  
@@ -218,72 +295,10 @@ The Output format must strictly follow this structure:
   "track_id": "{track_id}"
 
 
-"""
+""",
 )
 
-
-
-
-# Task Achievement Prompt
-
-
-IELTS_TASK_IMG_PROMPT = PromptTemplate(
-    input_variables=[        
-        "essay",
-        "question",
-        "criteria",
-        "output_score",
-        "output_comments",
-        "band_tool_output",
-        "criteria_tool_output",
-        "task_description_output",
-        "image_description"
-    ],
-     template="""
-You are an expert IELTS examiner specialising in {criteria} in writing.
-
-Your task is to evaluate the following essay according to IELTS {criteria} assessment criteria.
-
-Essay:
-{essay}
-
-Question:
-{question}
-
-Task Description:
-{task_description_output}
-
-Image Description:
-{image_description}
-
-Ensure the comments are formatted in markdown as below:
-**General Comments:**
-**You did very well:**
-**Need to improve:**
-**Examples of errors:**
-**How to improve your score:**
-
-
-The Output format must strictly follow this structure:
-{output_score}: <integer 0-9>
-{output_comments}: <brief, actionable feedback with examples>
-
-You must use the following tools to guide your evaluation:
-{{"Assessment Criteria Tool":{criteria_tool_output},
-"Band Descriptor Tool":{band_tool_output}}}
-
-Instructions for evaluation:
-1. Assign a band score (1-9) based strictly on {criteria} criteria.
-2. Provide concise and non-redundant comments explaining the score. 
-3. Highlight specific strengths and weaknesses in the essay, referencing the tool outputs where relevant.
-4. Suggest actionable improvements for the writer to raise their score.
-5. Responses in Australian English.
-
-
-"""
-)
-
-
+# Gap Analysis Prompt
 IELTS_GAP_ANALYSIS_PROMPT = PromptTemplate(
     input_variables=[
         "overall_band",
@@ -291,10 +306,9 @@ IELTS_GAP_ANALYSIS_PROMPT = PromptTemplate(
         "weak_bands",
         "weak_comments",
         "target_band_descriptor_data",
-        "criteria_data"
+        "criteria_data",
     ],
-     template=
-"""
+    template="""
 You are a senior IELTS teacher.
 Follow the instructions prior generate an answer:
 
@@ -302,9 +316,9 @@ Follow the instructions prior generate an answer:
 2. Compare the actual result and comments to the expectations on the target band descriptors and assessment guidelines.
 3. Create a professional response to the student receiving the feedback.
 
-4. Consider the following information to write the response:
+4. Consider the following information to write the response, but DO NOT mention the overall actual score on the response
 
-    The student's current overall band is {overall_band}, target is {target_band}.
+    The student's current overall band is {overall_band}, target band is {target_band}.
     Weak areas: {weak_bands}
 
     criteria evaluation:
@@ -330,7 +344,7 @@ Follow the instructions prior generate an answer:
 
 Example of a response:
 
-Your current writing score is 6.75, and your target is Band 7. The main area for improvement is **Coherence & Cohesion**, currently at Band 6. 
+Considering your current overall score and your target of Band 7, the main area for improvement is **Coherence & Cohesion**, currently at Band 6. 
 
 The feedback highlights a critical issue: the essay did not address the question prompt. This resulted in a lack of logical organisation, progression, and appropriate use of cohesive devices. The examiner correctly identifies that the entire essay is considered an error due to its irrelevance.
 
@@ -342,5 +356,5 @@ To improve your **Coherence & Cohesion** score (Band 6 -> Band 7), focus on thes
 *   **Plan and Structure:** Create a clear outline before you write. This should include an introduction, body paragraphs with topic sentences that directly relate to the question, and a conclusion. Each paragraph should focus on a single main idea.
 *   **Use Cohesive Devices Effectively:** Practice using a variety of cohesive devices (linking words, pronouns, etc.) to connect your ideas logically. Ensure you use them accurately and appropriately to show the relationship between your ideas.
 
-"""   
+""",
 )
