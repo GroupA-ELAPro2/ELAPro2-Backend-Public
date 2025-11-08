@@ -1,0 +1,130 @@
+{
+  "Academic": {
+    "Task 1": {
+      "word_requirement": 150,
+      "description": "Information-transfer task relating to factual content of a diagram, graph, table, chart, map or other visual input",
+      "Task Achievement": {
+          "common_assessment": [
+            "Fully fulfils the requirements set out in the task",
+            "Appropriately addresses the task requirements",
+            "Accurately completes the task",
+            "Relevantly responds to the task",
+            "Meets minimum word count of 150 words"
+          ],
+          "specific_assessment": [
+            "Selects key features of the information from the visual input",
+            "Provides sufficient detail to illustrate the features",
+            "Reports information, figures and trends accurately",
+            "Compares or contrasts information by highlighting identifiable trends, principal changes or differences (rather than mechanical description)",
+            "Presents the response in an appropriate format",
+            "Focuses on factual content of diagram, graph, table, chart, map or visual input",
+            "Avoids speculative explanations outside the given data"
+          ]
+        },
+      "Coherence & Cohesion": {
+          "common_assessment": [
+            "Logical organisation of information and/or ideas",
+            "Logical progression of the argument",
+            "Appropriate use of paragraphing for topic organisation and presentation",
+            "Logical sequencing of ideas and/or information within and across paragraphs",
+            "Flexible use of reference and substitution (e.g. definite articles, pronouns)",
+            "Appropriate use of discourse markers to mark stages in response (e.g. First of all, In conclusion)",
+            "Appropriate use of discourse markers to signal relationships between ideas and/or information (e.g. as a result, similarly)",
+            "Overall organisation and logical development of the message",
+            "Effective linking of information, ideas and language",
+            "Varied and appropriate use of cohesive devices (e.g. logical connectors, conjunctions and pronouns)"
+          ],
+          "specific_assessment": []
+        },
+      "Lexical Resource": {
+          "common_assessment": [
+            "Range of general words used (e.g. use of synonyms to avoid repetition)",
+            "Adequacy and appropriacy of vocabulary (e.g. topic-specific items, indicators of writer's attitude)",
+            "Precision of word choice and expression",
+            "Control and use of collocations",
+            "Control and use of idiomatic expressions",
+            "Control and use of sophisticated phrasing",
+            "Minimal density and communicative effect of spelling errors",
+            "Minimal density and communicative effect of word formation errors"
+          ],
+          "specific_assessment": []
+        },
+      "Grammatical Range & Accuracy": {
+          "common_assessment": [
+            "Range and appropriacy of structures used (e.g. simple, compound and complex sentences)",
+            "Accuracy of simple sentences",
+            "Accuracy of compound sentences",
+            "Accuracy of complex sentences",
+            "Minimal density and communicative effect of grammatical errors",
+            "Accurate and appropriate use of punctuation"
+          ],
+          "specific_assessment": []
+        }
+      },
+    
+    "Task 2": {
+      "word_requirement": 250,
+      "description": "Formulate and develop a position in relation to a given prompt in the form of a question or statement. Ideas should be supported by evidence, and examples may be drawn from candidate's own experience.",
+      "Task Response": {
+          "common_assessment": [
+            "Fully responds to the task",
+            "Main ideas are adequately extended and supported",
+            "Ideas are relevant to the task",
+            "Clearly opens the discourse",
+            "Establishes position clearly",
+            "Formulates conclusions clearly",
+            "Uses appropriate format for the response",
+            "Meets minimum word count of 250 words"
+          ],
+          "specific_assessment": []
+        },
+      "Coherence & Cohesion": {
+          "common_assessment": [
+            "Logical organisation of information and/or ideas",
+            "Logical progression of the argument",
+            "Appropriate use of paragraphing for topic organisation and presentation",
+            "Logical sequencing of ideas and/or information within and across paragraphs",
+            "Flexible use of reference and substitution (e.g. definite articles, pronouns)",
+            "Appropriate use of discourse markers to mark stages in response (e.g. First of all, In conclusion)",
+            "Appropriate use of discourse markers to signal relationships between ideas and/or information (e.g. as a result, similarly)",
+            "Overall organisation and logical development of the message",
+            "Effective linking of information, ideas and language",
+            "Varied and appropriate use of cohesive devices (e.g. logical connectors, conjunctions and pronouns)"
+          ],
+          "specific_assessment": []
+        },
+      "Lexical Resource": {
+          "common_assessment": [
+            "Range of general words used (e.g. use of synonyms to avoid repetition)",
+            "Adequacy and appropriacy of vocabulary (e.g. topic-specific items, indicators of writer's attitude)",
+            "Precision of word choice and expression",
+            "Control and use of collocations",
+            "Control and use of idiomatic expressions",
+            "Control and use of sophisticated phrasing",
+            "Minimal density and communicative effect of spelling errors",
+            "Minimal density and communicative effect of word formation errors"
+          ],
+          "specific_assessment": []
+        },
+      "Grammatical Range & Accuracy": {
+          "common_assessment": [
+            "Range and appropriacy of structures used (e.g. simple, compound and complex sentences)",
+            "Accuracy of simple sentences",
+            "Accuracy of compound sentences",
+            "Accuracy of complex sentences",
+            "Minimal density and communicative effect of grammatical errors",
+            "Accurate and appropriate use of punctuation"
+          ],
+          "specific_assessment": []
+        }
+      },
+    
+	"penalties": {
+          "plagiarism": "Scripts may be penalised if partly or wholly plagiarised",
+          "disconnected_text": "Scripts may be penalised if not written as full, connected text",
+          "bullet_points": "Using bullet points in any part of the response is not appropriate",
+          "note_form": "Using note form is not appropriate"
+        },
+	"weighting": "Task 2 carries more weight in marking than Task 1"
+}
+}
